@@ -21,3 +21,7 @@ En este archivo se registrarán los cambios principales realizados en el proyect
 * **Mejora de Reglas**: Agregada regla 8 — los cambios de documentación y reglas solo van al `log.md`, no a `planning/`.
 * **Documentación**: Corregidos `docs/ARCHITECTURE.md` (flujo de datos actualizado: precarga opcional, transición 0.6s, dropdown `position: absolute`), `docs/README.md` (guía de uso actualizada) y `technical_stack.md` (agregado `localStorage`).
 * **Mejora de Reglas**: Actualizado `README.md` para establecer el proceso de implementación en dos pasos (planificación obligatoria -> revisión -> implementación).
+* **Introspección**: Agregada sección "Introspección de la Sesión" en `planning/session-2026-02-23.md` — análisis retrospectivo de la cadena de decisiones, sorpresas, 3 aprendizajes principales, y evaluación del proceso a través de la racionalidad limitada de Herbert Simon.
+* **Introspección v2**: Compactada introspección a mínimo viable. Incorporadas reflexiones del PM (Schön, reflection-on-action): optimización de tokens, deuda de granularidad log↔sesión, nomenclatura BF/M como regla, principio de compresión documental.
+* **Reglas 9-10**: Agregadas regla 9 (introspección obligatoria al cierre de sesión, agente propone → PM enriquece) y regla 10 (nomenclatura estándar BF-XX/M-XX).
+* **Deuda registrada**: Granularidad `log.md` vs `session-*.md` pendiente de definir.

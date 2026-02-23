@@ -33,3 +33,16 @@ Este documento define las directrices y convenciones de desarrollo para este rep
 6. **Documentación**: Mantener documentación actualizada en `docs/`. Agregar docstrings a funciones Python y JSDoc a funciones JavaScript. Cada componente nuevo debe documentarse antes de pasar a la siguiente fase.
 7. **Bugfixes y Mejoras**: Todo bugfix o feature que surja fuera del plan original debe registrarse en el `session-YYYY-MM-DD.md` activo bajo las secciones `## Bugfixes` y `## Mejoras`, con síntoma, causa, fix e ítems completados.
 8. **Cambios de Documentación y Reglas**: Las actualizaciones de documentación (`docs/`, `README.md`, `technical_stack.md`, etc.) y de reglas del agente **no** requieren entrada en `planning/`. Solo deben registrarse en `log.md`.
+9. **Cierre de Sesión con Introspección**: Toda sesión debe cerrarse con una sección `## Introspección de la Sesión` en el archivo `session-*.md` activo. El agente redacta la propuesta inicial; luego el PM incorpora sus propias reflexiones (*reflection-on-action*, Schön). La introspección debe contener las siguientes subsecciones:
+   - **TL;DR**: Métricas duras y la idea central de la sesión en 2-3 líneas.
+   - **Cadena de decisiones**: Diagrama o lista de las macro-decisiones y sus derivaciones (bugs, mejoras, meta-mejoras).
+   - **Micro-decisiones clave**: Tabla con las decisiones pequeñas que resultaron determinantes (contexto → impacto).
+   - **Sorpresas**: Qué supuestos se invalidaron y por qué, con contexto suficiente para entender la causa.
+   - **Aprendizajes**: 1-3 lecciones con *implicancia* explícita (qué cambiar en el futuro).
+   - **Reflexiones del PM**: Observaciones del humano no capturadas por el agente (puntos ciegos, ajustes de proceso, deudas).
+   - **Métricas**: Tabla con dimensiones clave (archivos, líneas, tests, bugs, mejoras, reglas).
+   - **Deudas abiertas**: Checkboxes con problemas identificados pero no resueltos.
+   
+   **Tono**: compacto pero con desarrollo suficiente para que un humano o IA pueda extrapolar las ideas rápidamente y sin dificultad. Evitar tanto la verbosidad excesiva como la compresión críptica.
+10. **Nomenclatura Estándar**: Bugfixes se identifican como `BF-XX` y mejoras como `M-XX` (numeración secuencial por sesión). Esta nomenclatura debe usarse consistentemente en `session-*.md`, `log.md` y commits.
+11. **Horario de Sesión**: Todo archivo `session-*.md` debe registrar en su encabezado la **hora de inicio** y la **hora de término** de la sesión (formato `HH:MM`, zona horaria local). La hora de inicio se registra al crear el archivo; la hora de término se actualiza al cerrar la sesión (antes de la introspección).
