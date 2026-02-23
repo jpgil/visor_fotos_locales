@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visor_fotos</title>
+    <meta name="description" content="Visor de fotos en pantalla completa con transiciones morphing">
+    <link rel="stylesheet" href="/static/style.css?v=5">
+</head>
+
+<body>
+
+    <!-- Pantalla de configuración -->
+    <div id="config-screen" class="config-screen">
+        <div class="config-card">
+            <h1 class="config-title">visor_fotos</h1>
+            <p class="config-subtitle">Visor de fotos a pantalla completa con transiciones morphing</p>
+
+            <div class="config-form">
+                <label for="dir-input" class="config-label">Directorio de imágenes</label>
+                <div class="dir-input-wrapper">
+                    <input type="text" id="dir-input" class="config-input" placeholder="/ruta/a/tus/fotos"
+                        spellcheck="false" autocomplete="off">
+                    <button id="btn-recent" class="btn-recent" title="Rutas recientes" hidden>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <ul id="recent-dirs" class="recent-dirs" hidden></ul>
+                </div>
+                <div id="error-msg" class="error-msg" hidden></div>
+
+                <div class="config-options">
+                    <div class="option-group">
+                        <label for="interval-slider" class="option-label">Intervalo</label>
+                        <div class="slider-row">
+                            <input type="range" id="interval-slider" min="1" max="30" value="5" class="slider">
+                            <span id="interval-value" class="slider-value">5s</span>
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <label class="option-label">Orden</label>
+                        <div class="toggle-row">
+                            <button id="btn-alpha" class="toggle-btn active" data-order="alpha">A → Z</button>
+                            <button id="btn-random" class="toggle-btn" data-order="random">Aleatorio</button>
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <label class="option-label">Precarga</label>
+                        <div class="toggle-row">
+                            <button id="btn-preload-on" class="toggle-btn">Activa</button>
+                            <button id="btn-preload-off" class="toggle-btn active">Desact.</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Favoritos -->
+                <div class="favorites-section">
+                    <button id="btn-favorites-toggle" class="favorites-toggle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline id="fav-chevron" points="6 9 12 15 18 9" />
+                        </svg>
+                        Directorios favoritos
+                    </button>
+                    <div id="favorites-panel" class="favorites-panel" hidden>
+                        <textarea id="favorites-input" class="favorites-textarea"
+                            placeholder="Una ruta por línea:&#10;/Users/tu/fotos/vacaciones&#10;/Users/tu/fotos/familia"
+                            rows="4" spellcheck="false"></textarea>
+                        <div class="favorites-actions">
+                            <button id="btn-favorites-save" class="btn-fav-save">Guardar favoritos</button>
+                            <span id="favorites-feedback" class="favorites-feedback" hidden>Guardado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-start" class="btn-start">Iniciar</button>
+            </div>
+
+            <div class="config-shortcuts">
+                <p>Atajos: <kbd>Espacio</kbd> pausa · <kbd>←</kbd><kbd>→</kbd> navegar · <kbd>F</kbd> fullscreen ·
+                    <kbd>Esc</kbd> configuración
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow -->
+    <div id="slideshow" class="slideshow" hidden>
+        <img id="layer-a" class="slide-layer" alt="">
+        <img id="layer-b" class="slide-layer" alt="">
+
+        <!-- Overlay de controles (aparece al mover mouse) -->
+        <div id="controls-overlay" class="controls-overlay">
+            <div class="counter" id="counter">1 / 1</div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Indicador de pausa -->
+        <div id="pause-indicator" class="pause-indicator" hidden>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                <rect x="6" y="4" width="4" height="16" rx="1" />
+                <rect x="14" y="4" width="4" height="16" rx="1" />
+            </svg>
+        </div>
+    </div>
+
+    <script src="/static/app.js?v=4"></script>
+</body>
+
+</html>
